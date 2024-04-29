@@ -1,0 +1,7 @@
+name: NoteLift
+version: 0.0.1
+author: Nistro
+description: NoteLift is a Minecraft plugin that introducing elevators using Note Blocks. Jump to ascend or crouch to descend.
+main: fr.nistro.notelift.Main
+api: INVALID
+prefix: '§6[§eNoteLift§6]§r '

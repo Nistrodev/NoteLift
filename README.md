@@ -31,7 +31,7 @@ The plugin's configuration file (`config.yml`) includes the following options:
 - **Prefix**: §6[§eNoteLift§6] §r
 - **Message when Teleporting**: Enabled (true)
 - **Error Message**: Enabled (true)
-- **Note Block Name**: "§r§eAscenseu"
+- **Note Block Name**: "§r§eAscenseur"
 - **Messages**:
   - Teleport Success: "§aVous avez été téléporté avec succès."
   - Not Enough Space: "§cIl n'y a pas assez de place pour vous téléporter."

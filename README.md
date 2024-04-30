@@ -24,6 +24,18 @@ NoteLift is a Minecraft plugin that introduces elevators using Note Blocks. Play
 ## Craft
 ![crafting-grid(1)](https://github.com/Nistrodev/NoteLift/assets/109731762/ef4654a4-197b-4a44-bf76-26e61208f1bf)
 
+## Configuration
+
+The plugin's configuration file (`config.yml`) includes the following options:
+
+- **Prefix**: §6[§eNoteLift§6] §r
+- **Message when Teleporting**: Enabled (true)
+- **Error Message**: Enabled (true)
+- **Note Block Name**: "§r§eAscenseu"
+- **Messages**:
+  - Teleport Success: "§aVous avez été téléporté avec succès."
+  - Not Enough Space: "§cIl n'y a pas assez de place pour vous téléporter."
+
 ## Support
 
 If you encounter any issues or have suggestions for improvements, please create a new issue on the GitHub repository.

@@ -1,6 +1,7 @@
 package fr.nistro.notelift.util;
 
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -71,7 +72,8 @@ public class NoteBlockUtils implements Listener {
 		ItemStack noteBlock = new ItemStack(Material.NOTE_BLOCK, 1);
 		
 		ItemMeta meta = noteBlock.getItemMeta();
-	    meta.setDisplayName("§r§eAscenseur");
+	    meta.setDisplayName(Bukkit.getPluginManager().getPlugin("NoteLift")
+				.getConfig().getString("noteBlock-name"));
 	    noteBlock.setItemMeta(meta);
 		
 		ShapedRecipe noteBlockRecipe = new  ShapedRecipe(noteBlock).shape("LLL", "SPS", "%R%").setIngredient('L', Material.WOOL).setIngredient('S', Material.SLIME_BALL).setIngredient('P', Material.PISTON_BASE).setIngredient('R', Material.REDSTONE).setIngredient('%', Material.WOOD);

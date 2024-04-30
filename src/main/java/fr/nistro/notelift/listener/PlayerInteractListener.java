@@ -13,6 +13,7 @@ public class PlayerInteractListener implements Listener {
 		if (event.getAction().toString().contains("RIGHT")) {
 			if (event.getClickedBlock() != null) {				
 				if (event.getClickedBlock().getType() == Material.NOTE_BLOCK) {
+					// Annule l'interaction
 					event.setCancelled(true);
 				}
 			}

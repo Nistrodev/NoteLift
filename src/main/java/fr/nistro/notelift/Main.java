@@ -1,8 +1,8 @@
 package fr.nistro.notelift;
 
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import fr.nistro.notelift.util.ConfigUtil;
 import fr.nistro.notelift.listener.PlayerInteractListener;
 import fr.nistro.notelift.listener.PlayerMoveListener;
 import fr.nistro.notelift.listener.PlayerToggleSneakListener;
@@ -18,13 +18,15 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerToggleSneakListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
    
+        saveDefaultConfig();
+        
         // Référencement du préfixe
-		PluginDescriptionFile pdfFile = this.getDescription();
-		        
-        prefix = pdfFile.getPrefix();
+        prefix = getConfig().getString("prefix"); 
+        
+        ConfigUtil config = new ConfigUtil(this, "config.yml");
+        config.save();
         
         // Création de la recette du bloc de note
-        
         getServer().addRecipe(NoteBlockUtils.getNoteBlockRecipe());
       
         getLogger().info("Plugin NoteLift activé !");

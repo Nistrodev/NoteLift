@@ -1,0 +1,11 @@
+prefix: §6[§eNoteLift§6] §r
+
+message-when-teleporting: true
+error-message: true
+
+
+noteBlock-name: "§r§eAscenseu"
+
+messages:
+    teleport-success: "§aVous avez été téléporté avec succès."
+    not-enough-space: "§cIl n'y a pas assez de place pour vous téléporter."

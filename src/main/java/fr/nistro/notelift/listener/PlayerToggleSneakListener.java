@@ -1,5 +1,6 @@
 package fr.nistro.notelift.listener;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,16 +26,20 @@ public class PlayerToggleSneakListener implements Listener {
                 Integer[] noteBlockCoords = NoteBlockUtils.isNoteBlockBelowBlock(player);
                 if (noteBlockCoords != null) {
                     // Vérifier si l'espace au-dessus du bloc de note est libre pour la téléportation
-                    if (TeleportUtils.isFreeSpaceAbove(noteBlockCoords[0], noteBlockCoords[1], noteBlockCoords[2])) {
+                    if (TeleportUtils.isFreeSpaceAbove(noteBlockCoords[0], noteBlockCoords[1], noteBlockCoords[2], player)) {
                     	// Téléporter le joueur au-dessus du bloc de note au milieu du bloc
                     	// Sauvegarder l'orientation du joueur
                     	float yaw = player.getLocation().getYaw();
                     	float pitch = player.getLocation().getPitch();
                     	// Téléporter le joueur
                     	TeleportUtils.TeleportPlayer(noteBlockCoords[0], noteBlockCoords[1], noteBlockCoords[2], yaw, pitch, player);
-                        player.sendMessage(Main.getPrefix() + "§aTéléportation réussie !"); // Envoyer un message de succès
+                    	if (Bukkit.getPluginManager().getPlugin("NoteLift").getConfig().getBoolean("message-when-teleporting")) {
+                    		player.sendMessage(Main.getPrefix() + Bukkit.getPluginManager().getPlugin("NoteLift").getConfig().getString("messages.teleport-success"));
+                    	}
                     } else {
-                        player.sendMessage(Main.getPrefix() + "§cIl n'y a pas assez de place pour se téléporter !"); // Envoyer un message d'échec
+                    	if (Bukkit.getPluginManager().getPlugin("NoteLift").getConfig().getBoolean("error-message")) {
+                    		player.sendMessage(Main.getPrefix() + Bukkit.getPluginManager().getPlugin("NoteLift").getConfig().getString("messages.not-enough-space"));
+                    	}
                     }
                 }
             }

@@ -1,6 +1,5 @@
 package fr.nistro.notelift.util;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -11,13 +10,17 @@ import org.bukkit.event.Listener;
 public class TeleportUtils implements Listener {
     
     // Méthode statique pour vérifier si l'espace au-dessus du bloc spécifié est libre
-    public static boolean isFreeSpaceAbove(int x, int y, int z) {
+    public static boolean isFreeSpaceAbove(int x, int y, int z, Player player) {
         int maxYBlock = y + 3; // Limite supérieure de la recherche (3 blocs au-dessus)
 
         // Parcourir les blocs au-dessus du bloc spécifié jusqu'à la limite supérieure
         for (int i = y + 1; i < maxYBlock; i++) {
             // Vérifier si le bloc au-dessus n'est pas vide
-            if (!Bukkit.getWorld("world").getBlockAt(x, i, z).isEmpty()) {
+        	// Récupère le monde du joueur
+        	World world = player.getWorld();
+        	
+        	// Vérifie si le monde n'est pas vide et si le bloc n'est pas vide
+            if (!world.getBlockAt(x, i, z).isEmpty()) {
                 return false; // L'espace n'est pas libre
             }
         }
@@ -26,13 +29,11 @@ public class TeleportUtils implements Listener {
     }
     
     // Méthode pour ajouter des particules de téléportation
-    public static void addTeleportParticles(int x, int y, int z) {
+    public static void addTeleportParticles(int x, int y, int z, Player player) {
         // Ajouter des particules de téléportation
-        World world = Bukkit.getWorld("world");
+        World world = player.getWorld();
         if (world != null) {
             world.spawnParticle(Particle.PORTAL, x + 0.5, y + 0.5, z + 0.5, 100, 0.8, 0.8, 0.8, 0.1);
-        } else {
-            System.out.println("Le monde spécifié n'existe pas !");
         }
     }
     
@@ -47,6 +48,6 @@ public class TeleportUtils implements Listener {
         player.playSound(newLocation, Sound.ENTITY_ENDERMEN_TELEPORT, 1.0f, 1.0f);
     	
     	// Ajouter des particules de téléportation
-    	addTeleportParticles(x, y, z);
+    	addTeleportParticles(x, y, z, player);
 	}
 }

@@ -11,7 +11,7 @@ import fr.nistro.notelift.util.TeleportUtils; // Importer la classe TeleportUtil
 
 public class PlayerMoveListener implements Listener {
 
-    private final double JUMP_THRESHOLD = 0.3; // Seuil de saut
+    private final double JUMP_THRESHOLD = 0.2; // Seuil de saut du joueur
 
     private double lastY = 0; // Dernière position Y du joueur
     

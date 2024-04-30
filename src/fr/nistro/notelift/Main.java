@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import fr.nistro.notelift.listener.PlayerInteractListener;
 import fr.nistro.notelift.listener.PlayerMoveListener;
 import fr.nistro.notelift.listener.PlayerToggleSneakListener;
+import fr.nistro.notelift.util.NoteBlockUtils;
 
 public class Main extends JavaPlugin {
     
@@ -21,6 +22,10 @@ public class Main extends JavaPlugin {
 		PluginDescriptionFile pdfFile = this.getDescription();
 		        
         prefix = pdfFile.getPrefix();
+        
+        // Création de la recette du bloc de note
+        
+        getServer().addRecipe(NoteBlockUtils.getNoteBlockRecipe());
       
         getLogger().info("Plugin NoteLift activé !");
     }

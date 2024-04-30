@@ -3,6 +3,7 @@ package fr.nistro.notelift.listener;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class PlayerInteractListener implements Listener {
@@ -17,5 +18,16 @@ public class PlayerInteractListener implements Listener {
 				event.setCancelled(true);
 			}
 		}
+	}
+
+
+	// Anulle l'interaction des crafts
+	@EventHandler
+	public void onPlayerCraft(CraftItemEvent event) {
+		if (event.getRecipe().getResult().getType() == Material.NOTE_BLOCK && event.getRecipe().getResult().getItemMeta().getDisplayName() == null) {
+			// Annule le craft
+			event.setCancelled(true);
+		}
+		
 	}
 }

@@ -21,6 +21,9 @@ NoteLift is a Minecraft plugin that introduces elevators using Note Blocks. Play
 2. Place another Note Block above or below to set the direction of the elevator.
 3. Jump onto the elevator to ascend or crouch to descend.
 
+## Craft
+![crafting-grid(1)](https://github.com/Nistrodev/NoteLift/assets/109731762/ef4654a4-197b-4a44-bf76-26e61208f1bf)
+
 ## Support
 
 If you encounter any issues or have suggestions for improvements, please create a new issue on the GitHub repository.

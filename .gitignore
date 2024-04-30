@@ -2,3 +2,7 @@
 bin\fr\nistro\notelift
 .settings
 .project
+pom.xml
+.classpath
+target
+src\test

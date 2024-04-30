@@ -11,7 +11,7 @@ import fr.nistro.notelift.util.TeleportUtils; // Importer la classe TeleportUtil
 
 public class PlayerMoveListener implements Listener {
 
-    private final int JUMP_THRESHOLD = (int) 0.5; // Seuil de saut
+    private final double JUMP_THRESHOLD = 0.3; // Seuil de saut
 
     private double lastY = 0; // Dernière position Y du joueur
     
@@ -28,7 +28,7 @@ public class PlayerMoveListener implements Listener {
         if (!player.isFlying()) {
             double currentY = event.getTo().getY(); // Position Y actuelle du joueur
             double deltaY = currentY - lastY; // Calcul de la variation de la position Y
-
+            
             // Si la variation de la position Y dépasse le seuil de saut
             if (deltaY > JUMP_THRESHOLD) {
                 // Vérifier si un bloc de note se trouve en dessous du joueur

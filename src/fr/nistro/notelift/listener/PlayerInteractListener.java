@@ -7,15 +7,14 @@ import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class PlayerInteractListener implements Listener {
-	
+
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		// Si un joueur interagit avec un bloc de note
-		if (event.getClickedBlock().getType() == Material.NOTE_BLOCK) {
-			// Si il fait un clic droit
-			if (event.getAction().toString().contains("RIGHT")) {				
-				// Annule l'interaction
-				event.setCancelled(true);
+		if (event.getAction().toString().contains("RIGHT")) {
+			if (event.getClickedBlock() != null) {				
+				if (event.getClickedBlock().getType() == Material.NOTE_BLOCK) {
+					event.setCancelled(true);
+				}
 			}
 		}
 	}
@@ -28,6 +27,6 @@ public class PlayerInteractListener implements Listener {
 			// Annule le craft
 			event.setCancelled(true);
 		}
-		
+
 	}
 }

@@ -6,8 +6,8 @@ NoteLift is a Minecraft plugin that introduces elevators using Note Blocks. Play
 
 - **Elevator Creation**: Easily create elevators using Note Blocks.
 - **Intuitive Controls**: Ascend by jumping and descend by crouching, making navigation seamless.
-- **Customization**: Configure elevator properties such as speed and maximum distance.
-- **Compatibility**: Compatible with various Minecraft versions and server setups.
+- **Custom Sound**: Play the endermen teleport sound when you use the elevators.
+- **Custom particles**: Add some particles when you teleport through the Note Blocks.
 
 ## Installation
 
